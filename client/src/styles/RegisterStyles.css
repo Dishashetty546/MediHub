@@ -1,0 +1,13 @@
+.form-container{
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    height:100vh;
+
+    border:1px solid black;
+}
+.register-form{
+    padding:30px;
+    border:1px solid rgb(50, 8, 8);
+    width:30%;
+}
