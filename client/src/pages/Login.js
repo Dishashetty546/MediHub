@@ -2,10 +2,27 @@ import React from "react";
 import { Form, Input } from "antd";
 import "../styles/LoginStyles.css";
 import { Link } from "react-router-dom";
-
+import { message } from "antd";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 const Login = () => {
-  const onfinishHandler = (values) => {
-    console.log(values);
+  const navigate = useNavigate();
+  const onfinishHandler = async (values) => {
+    try {
+      const res = await axios.post(
+        "http://localhost:8080/api/v1/user/login",
+        values
+      );
+      if (res.data.success) {
+        message.success("login successfully");
+        navigate("/");
+      } else {
+        message.error(res.data.message);
+      }
+    } catch (error) {
+      console.log(error);
+      message.error("something went wrong");
+    }
   };
   return (
     <>
@@ -16,9 +33,7 @@ const Login = () => {
           className="register-form"
         >
           <h1 className="text-center">Login Form</h1>
-          <Form.Item label="Name" name="name">
-            <Input type="text" required />
-          </Form.Item>
+
           <Form.Item label="Email" name="email">
             <Input type="email" required />
           </Form.Item>

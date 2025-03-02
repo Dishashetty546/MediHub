@@ -12,3 +12,6 @@ setup register, Login frontend setup, add concurrency to run both frontend and b
 
 step 5:
 database connection,creating collection,working on login and register routes,models
+
+step 5:
+hashed password, JWT web token integration, login and register functionality is done

@@ -10,6 +10,6 @@ const router = express.Router();
 //routes
 //LOGIN || PORT
 router.post("/login", loginController);
-router.post("register", registerController);
+router.post("/register", registerController);
 
 module.exports = router;

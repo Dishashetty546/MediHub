@@ -4,6 +4,7 @@ const moragan = require("morgan");
 const dotenv = require("dotenv");
 const { connected } = require("process");
 const connectDb = require("./config/db");
+const cors = require("cors");
 
 //rest object
 
@@ -16,7 +17,7 @@ connectDb();
 //middleware
 app.use(express.json());
 app.use(moragan("dev"));
-
+app.use(cors());
 //routes setup
 app.use("/api/v1/user", require("./routes/userRoutes"));
 
